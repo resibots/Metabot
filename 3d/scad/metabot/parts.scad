@@ -13,7 +13,7 @@ module metabot_colorize() {
 
 module metabot_u(print=false) {
     metabot_colorize()
-        u(UHeight, URadius, Thickness, UScrewsSpacing, UScrewsDiameter, print=print);
+        u(UHeight, URadius, Thickness, UScrewsSpacing, UScrewsDiameter, UUseScrews, !UUseScrews, print=print);
 }
 
 module metabot_leg(print=false) {

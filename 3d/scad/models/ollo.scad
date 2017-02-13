@@ -19,7 +19,7 @@ module threeOllo(depth=2.2)
 {
   for (xy=[[-OlloSpacing,0],[0,0],[OlloSpacing,0]]) {
     translate([xy[0], xy[1], 0])
-    olloHole(depth);
+      olloHole(depth);
   }
 }
 

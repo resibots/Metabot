@@ -1,10 +1,10 @@
 include <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
-module side(size=40, holesToBorder=5, thickness=2.2, print=false) {
+module side(size, holesToBorder, thickness, print=false) {
     if (print) {
         translate([0,-size+holesToBorder,0])
-            side(size,holesToBorder,thickness,false);
+            side(size, holesToBorder, thickness, false);
     } else {
         echo("[PART] side");
         translate([0,size-holesToBorder,0]) {

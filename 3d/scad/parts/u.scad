@@ -1,8 +1,10 @@
 use <../models/ollo.scad>;
 
-module u(height=15, radius=8, thickness=2.2, screwsSpacing=10, screwsDiameter=2.6, screws=true, olloScrew=false, widthSize=15, print=false) {
+module u(height, radius, thickness, screwsSpacing, screwsDiameter, screws,
+    olloScrew, widthSize=15, print=false)
+{
     module Ubranch() {
-        union() {  
+        union() {
             cylinder(thickness, 10, 10);
             translate([-10,0,0])
                 cube([20, height, thickness]);
@@ -58,7 +60,7 @@ module u(height=15, radius=8, thickness=2.2, screwsSpacing=10, screwsDiameter=2.
         difference() {
             translate([0,0,-widthSize-thickness]) {
                 USide();
-                mirror([0,0,1]) translate([0,0,-2*thickness-2*widthSize])  
+                mirror([0,0,1]) translate([0,0,-2*thickness-2*widthSize])
                     USide();
             }
             if (screws) {

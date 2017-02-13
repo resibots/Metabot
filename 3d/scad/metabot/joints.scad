@@ -4,13 +4,13 @@ use <../joints/side_to_side.scad>;
 use <../joints/leg.scad>;
 
 module metabot_double_u(alpha=0) {
-    double_u(UHeight, URadius, Thickness, UScrewsSpacing, UScrewsDiameter, col=PartsColor, alpha=alpha) {
+    double_u(UHeight, URadius, Thickness, UScrewsSpacing, UScrewsDiameter, UUseScrews, PartsColor, alpha) {
         children();
     }
 }
 
 module metabot_side_to_side(alpha=0) {
-    side_to_side(SideSize, SideHolesToBorder, Thickness, col=PartsColor, alpha=alpha) {
+    side_to_side(SideSize, SideHolesToBorder, PartsColor, Thickness, alpha) {
         children();
     }
 }

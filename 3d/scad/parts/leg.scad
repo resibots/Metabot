@@ -1,8 +1,8 @@
 use <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
-module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
-        sizeTop=15, mode="arm", fixationAngle=0, thickness=2.2, print=false)
+module leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
+    thickness, print=false)
 {
     xOffset = (mode == "side") ? -10 : 0;
     spacing = (mode == "side") ? 24 : 30;

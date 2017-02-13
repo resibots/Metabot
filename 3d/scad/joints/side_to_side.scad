@@ -2,7 +2,7 @@ include <../models/motor.scad>;
 use <../models/motor_arm.scad>;
 use <../parts/side.scad>;
 
-module side_to_side(size=40, holesToBorder=5, col="white", thickness=2.2)
+module side_to_side(size, holesToBorder, col, thickness, alpha)
 {
     for (side=[MotorWidth/2+thickness,-MotorWidth/2]) {
         translate([side,0,0]) {
@@ -14,7 +14,7 @@ module side_to_side(size=40, holesToBorder=5, col="white", thickness=2.2)
     }
     translate([0,-(size*2-2*holesToBorder),0]) {
         rotate([0,0,180]) {
-            motorArm();
+            motorArm(thickness);
             rotate([0,0,alpha])
                 children();
         }
