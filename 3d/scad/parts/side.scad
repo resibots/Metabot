@@ -20,4 +20,5 @@ module side(size, holesToBorder, thickness, print=false) {
     }
 }
 
-side();
+// For example:
+side(size=35);

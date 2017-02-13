@@ -20,27 +20,33 @@ module leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
                                 rounded(25,10,thickness, center=true);
                         }
                     }
+                    /*rotate([0, 90, 0])
+                        translate([-50, 0, -thickness/2])
+                            cylinder(thickness, 10, 10);*/
             }
             translate([-thickness, 0, sizeA-15]) {
-                rotate([90,0,90]) {
+                rotate([90,0,90])
                     if (mode == "arm") {
                         servoArm(2*thickness);
                     }
-                }
+
                 if (mode == "side") {
                     translate([0,10,0])
                         rotate([90,90-fixationAngle,90])
-                        threeOllo(2*thickness);
+                            threeOllo(2*thickness);
                 }
             }
         }
-        translate([-thickness/2,0,sizeA]) {
+
+        /*translate([-thickness/2,0,sizeA]) {
             rotate([90,0,90])
                 linear_extrude(thickness)
                 polygon([[-10,0],[-1,sizeTop],[1,sizeTop],[10,0]]);
-        }
+        }*/
     }
-
+    module foot_tip() {
+        cylinder(20, 5.5, 5.5);
+    }
     module biais() {
         Dx = (spacing-sizeBottom)/2;
         Dy = sizeC;
@@ -58,6 +64,12 @@ module leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
                     sizeTop, mode, fixationAngle, thickness, false);
     } else {
         echo("[PART] leg");
+
+        extra_thickness = 1;
+        extra_width = 4;
+        /*translate([-(spacing/2+thickness), 10-extra_thickness, -extra_width/2])
+            cube([spacing+thickness*2, extra_thickness, extra_width]);*/
+
         translate([0,xOffset,-sizeA+15]) {
             cube([spacing+thickness*2, 20, thickness], center=true);
 
@@ -76,6 +88,9 @@ module leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
             translate([0,0,-(sizeB+sizeC)])
                 cube([sizeBottom+thickness*2, 20, thickness], center=true);
 
+            translate([0, 0, -sizeB - sizeC - 20])
+              foot_tip();
+
             biais();
             mirror([1,0,0]) {
                 biais();
@@ -84,4 +99,6 @@ module leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
     }
 }
 
-leg();
+// For example:
+// leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10, sizeTop=15, mode="arm",
+//     fixationAngle=0, thickness=2.2, print=false)

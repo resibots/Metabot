@@ -1,8 +1,9 @@
-// Number of legs
-Legs = 4;
+// /!\ Caution /!\
+// OlloHoles set to 3 in ollo.scad, whereas default value is 4.3
+// It is done so that we can drill the holes to exact diameter.
 
-// Size of the body
-BodySize = 23;
+// Number of legs
+Legs = 6;
 
 // Number of motors per leg (2 or 3)
 MotorsPerLeg = 3;
@@ -13,14 +14,17 @@ L3Angle = -5;
 // Color of the parts, for rendering
 PartsColor = [0.8, 0.8, 0.8];
 
+// Color for the body parts, still for rendering
+BodyColor = [0.7, 0.6, 0.5];
+
 // Thickness of parts (2.2 is good for Ollo rivets)
 Thickness = 2.2;
 
 // Sizes of the parts of the leg
 // Ratio of leg parts
 LegSize = 100;
-LegSizeA = (0.60)*LegSize;
-LegSizeB = (0.20)*LegSize;
+LegSizeA = (0.40)*LegSize;
+LegSizeB = (0.30)*LegSize;
 LegSizeC = (0.20)*LegSize;
 
 // Width of the bottom part of the leg
@@ -46,12 +50,21 @@ UHeight = 15.2;
 URadius = 8;
 UWidth = 30+Thickness/2;
 UTotalHeight = UHeight+URadius;
+UUseScrews = true; // if false, Ollo rivets are used instead
 UScrewsSpacing = 10;
-UScrewsDiameter= 3.3;
+UScrewsDiameter= 2.6;
 
 // Side dimensions
 SideSize = 35;
 SideHolesToBorder = 5;
 
 // Defining the resolution
-$fn=35;
+/*$fn=10; // For visualisation only*/
+$fn=50; // For printing only
+
+// Joint angles
+joint_angles = [0, -30, -110];
+
+// Size of the body
+/*BodySize = 23;*/
+BodyWidth = MotorHeight;

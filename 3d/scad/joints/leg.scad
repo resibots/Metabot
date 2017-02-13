@@ -17,3 +17,10 @@ module bottom_leg(sizeA, sizeB, sizeC, sizeBottom, sizeTop, mode, fixationAngle,
         }
     }
 }
+
+// For example:
+// arm_leg(sizeA=60, sizeB=10, sizeC=20, sizeBottom=10, sizeTop=15, mode="arm",
+//        fixationAngle=0, thickness=2.2, print=false);
+
+// bottom_leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10, sizeTop=15,
+//            mode="arm", fixationAngle=0, thickness=2.2, print=false);
