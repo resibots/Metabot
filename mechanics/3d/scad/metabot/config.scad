@@ -17,8 +17,12 @@ PartsColor = [0.8, 0.8, 0.8];
 // Color for the body parts, still for rendering
 BodyColor = [0.7, 0.6, 0.5];
 
+// Head height
+HeadHeight=30;
+
 // Thickness of parts (2.2 is good for Ollo rivets)
 Thickness = 2.2;
+BodyThickness = 3;
 
 // Sizes of the parts of the leg
 // Ratio of leg parts
@@ -68,3 +72,8 @@ joint_angles = [0, -30, -110];
 // Size of the body
 /*BodySize = 23;*/
 BodyWidth = MotorHeight;
+
+module metabot_colorize() {
+    color(PartsColor)
+        children();
+}
